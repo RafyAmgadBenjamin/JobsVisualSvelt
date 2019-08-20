@@ -70,8 +70,6 @@
 						<td>{task.name}</td>
 						<td>{task.uuid}</td>
 
-						{console.log("status",task.status)}
-
 						{#if task.status == status.SUCCESS}
 							<td>
 								<span class="label label-pill label-success">
