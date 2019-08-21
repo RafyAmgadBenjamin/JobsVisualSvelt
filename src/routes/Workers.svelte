@@ -28,12 +28,11 @@
 			<thead>
 				<tr>
 					<th scope="col">#</th>
-					<th scope="col">Name</th>
-					<th scope="col">Status</th>
-					<th scope="col">Concurrentcy</th>
-					<th scope="col">Completed Tasks</th>
-					<th scope="col">Running Tasks</th>
-					<th scope="col">Queues</th>
+					<th scope="col">Pid</th>
+					<th scope="col">Time start</th>
+					<th scope="col">Last update</th>
+					<th scope="col">Current job</th>
+					<th scope="col">Running</th>
 				</tr>
 			</thead>
 			<!--[Workers-Data-Body]-->
@@ -42,25 +41,12 @@
 					<tr>
 						<th scope="row">{i + 1}</th>
 						<td>
-							<a href="/single-worker-tasks/{worker.id}" use:link>{worker.name}</a>
+							<a href="/single-worker-tasks/{worker.pid}" use:link>{worker.pid}</a>
 						</td>
-						{#if worker.status == status.ONLINE}
-							<td>
-								<span class="label label-pill label-success">
-									{worker.status}
-								</span>
-							</td>
-						{:else if worker.status == status.OFFLINE}
-							<td>
-								<span class="label label-pill label-danger">
-									{worker.status}
-								</span>
-							</td>
-						{/if}
-						<td>{worker.concurrency}</td>
-						<td>{worker.completedTasks}</td>
-						<td>{worker.runningTasks}</td>
-						<td>{worker.queues}</td>
+						<td>{worker.time_start}</td>
+						<td>{worker.last_update}</td>
+						<td>{worker.current_job}</td>
+						<td>{worker.running}</td>
 					</tr>
 				{/each}
 			</tbody>

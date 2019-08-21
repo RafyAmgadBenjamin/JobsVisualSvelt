@@ -16,7 +16,7 @@
 	function getSingleWorkerTasks(workerId) {
 		var workerTasks = [];
 		var workerIndex;
-		workerIndex = workers.findIndex(worker => worker.id == workerId);
+		workerIndex = workers.findIndex(worker => worker.pid == workerId);
 		if (workerIndex == -1) {
 			isError = true;
 			return;

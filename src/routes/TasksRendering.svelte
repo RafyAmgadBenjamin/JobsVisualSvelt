@@ -1,10 +1,9 @@
 <script>
 	export let allTasks = [];
 	export let isError = false;
-	const status = {
-		STARTED: 'started',
-		RECEIVED: 'received',
-		SUCCESS: 'success',
+	const state = {
+		RESULT: 'ok',
+		ERROR: 'error',
 	};
 	console.log('tasks rendering module');
 </script>
@@ -20,12 +19,15 @@
 				<thead>
 					<tr>
 						<th scope="col">#</th>
-						<th scope="col">Name</th>
-						<th scope="col">UUID</th>
-						<th scope="col">Status</th>
+						<th scope="col">Category</th>
+						<th scope="col">Time start</th>
+						<th scope="col">Time end</th>
+						<th scope="col">State</th>
+						<th scope="col">Action name</th>
 						<th scope="col">args</th>
 						<th scope="col">kwargs</th>
 						<th scope="col">Result</th>
+						<th scope="col">Error</th>
 					</tr>
 				</thead>
 				<!--[Tasks-Data-Body]-->
@@ -33,32 +35,28 @@
 					{#each allTasks as task, i}
 						<tr>
 							<th scope="row">{i + 1}</th>
-							<td>{task.name}</td>
-							<td>{task.uuid}</td>
-
-							{#if task.status == status.SUCCESS}
+							<td>{task.category}</td>
+							<td>{task.time_start}</td>
+							<td>{task.time_end}</td>
+							{#if task.state == state.RESULT}
 								<td>
 									<span class="label label-pill label-success">
-										{task.status}
+										{task.state}
 									</span>
 								</td>
-							{:else if task.status == status.RECEIVED}
-								<td>
-									<span class="label label-pill label-primary">
-										{task.status}
-									</span>
-								</td>
-							{:else if task.status == status.STARTED}
+							{:else if task.state == state.ERROR}
 								<td>
 									<span class="label label-pill label-danger">
-										{task.status}
+										{task.state}
 									</span>
 								</td>
 							{/if}
 
+							<td>{task.action_name}</td>
 							<td>{task.args}</td>
 							<td>{task.kwargs}</td>
 							<td>{task.result}</td>
+							<td>{task.error}</td>
 						</tr>
 					{/each}
 				</tbody>

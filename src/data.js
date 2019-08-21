@@ -3,42 +3,36 @@ export default
 
         "workers": [
             {
-                "id": 123456,
-                "name": "celery1.pi.local",
-                "status": "online",
-                "concurrency": 4,
-                "completedTasks": 13902,
-                "runningTasks": 0,
-                "queues": ["images", "data", "video"],
+                "pid": 156652,
+                "time_start": "8-8-2019",
+                "last_update": "5 m",
+                "current_job": 13902,
+                "running": true,
                 "tasks": [
-                    { "name": "tasks.sleep", "uuid": "1233324-1234dsf-34dsr-34drfds", "status": "success", "args": "[5]", "kwargs": "{}", "result": "5" },
-                    { "name": "tasks.sleep", "uuid": "3fe4354-1234dsf-34dsr-34drfds", "status": "started", "args": "[5]", "kwargs": "{}", "result": "5" },
-                    { "name": "tasks.sleep", "uuid": "343nj4n-1234dsf-34dsr-34drfds", "status": "success", "args": "[5]", "kwargs": "{}", "result": "5" },
-                    { "name": "tasks.sleep", "uuid": "dfsadsf-1234dsf-34dsr-34drfds", "status": "received", "args": "[5]", "kwargs": "{}", "result": "5" },
+                    { "category": "tasks.sleep", "time_start": "5-9-2019", "time_end": "10-9-2019", "state": "error", "action_name": "testing_actions", "args": "[5]", "kwargs": "{}", "result": "5", "error": "message" },
+                    { "category": "tasks.sleep", "time_start": "5-9-2019", "time_end": "10-9-2019", "state": "error", "action_name": "testing_actions", "args": "[5]", "kwargs": "{}", "result": "5", "error": "message" },
+                    { "category": "tasks.sleep", "time_start": "5-9-2019", "time_end": "10-9-2019", "state": "ok", "action_name": "testing_actions", "args": "[5]", "kwargs": "{}", "result": "5", "error": "message" },
+                    { "category": "tasks.sleep", "time_start": "5-9-2019", "time_end": "10-9-2019", "state": "ok", "action_name": "testing_actions", "args": "[5]", "kwargs": "{}", "result": "5", "error": "message" },
                 ]
 
             }, {
-                "id": 1234568,
-                "name": "celery2.pi.local",
-                "status": "online",
-                "concurrency": 2,
-                "completedTasks": 13900,
-                "runningTasks": 0,
-                "queues": ["images", "data", "video"],
+                "pid": 123456,
+                "time_start": "8-8-2019",
+                "last_update": "5 m",
+                "current_job": 13902,
+                "running": true,
                 "tasks": [
-                    { "name": "tasks.sleep", "uuid": "dfsadsf-1234dsf-34dsr-34drfds", "status": "received", "args": "[5]", "kwargs": "{}", "result": "5" },
+                    { "category": "tasks.sleep", "time_start": "5-9-2019", "time_end": "10-9-2019", "state":  "ok","action_name":  "testing_actions", "args": "[5]", "kwargs": "{}", "result": "5", "error": "message" },
                 ]
             },
             {
-                "id": 12345615,
-                "name": "celery3.pi.local",
-                "status": "offline",
-                "concurrency": 3,
-                "completedTasks": 14500,
-                "runningTasks": 0,
-                "queues": ["images", "video"],
+                "pid": 26545,
+                "time_start": "8-8-2019",
+                "last_update": "5 m",
+                "current_job": 13902,
+                "running": true,
                 "tasks": [
-                    { "name": "tasks.sleep", "uuid": "dfsadsf-1234dsf-34dsr-34drfds", "status": "success", "args": "[5]", "kwargs": "{}", "result": "5" }
+                    { "category": "tasks.sleep", "time_start": "5-9-2019", "time_end": "10-9-2019", "state": "error", "action_name": "testing_actions", "args": "[5]", "kwargs": "{}", "result": "5", "error": "message" },
                 ]
             }
         ],
