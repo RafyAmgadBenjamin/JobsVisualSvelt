@@ -22,7 +22,7 @@
 <!--[Containder]-->
 <div class="row">
 	<!--[Workers-Data]-->
-	<div class="col-sm-12">
+	<div class="col-xs-12">
 		<table class="table table-striped">
 			<!--[Workers-Data-Headers]-->
 			<thead>
