@@ -25,7 +25,6 @@
 <div>
 	<Navigtation />
 </div>
-<h1>parent</h1>
 <div class="container">
 	<!-- Show the router -->
 	<Router {routes} />
