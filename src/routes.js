@@ -5,7 +5,7 @@ import NotFound from './routes/NotFound.svelte';
 
 let routes
 routes = new Map()
-// routes.set('/', Workers)
+routes.set('/', Workers)
 routes.set('/workers', Workers)
 routes.set('/tasks', Tasks)
 routes.set('/single-worker-tasks/:taskId', SingleWorkerTasks)
