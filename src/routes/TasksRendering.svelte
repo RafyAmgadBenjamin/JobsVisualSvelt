@@ -6,6 +6,19 @@
 		ERROR: 'error',
 	};
 	console.log('tasks rendering module');
+
+	var successCount;
+	var failureCount;
+	if (isError != true) {
+		successCount = 0;
+		failureCount = 0;
+		allTasks.forEach(task => {
+			task.state == 'ok' ? successCount++ : 0;
+		});
+		allTasks.forEach(task => {
+			task.state == 'error' ? failureCount++ : 0;
+		});
+	}
 </script>
 
 <!--[Containder]-->
@@ -67,4 +80,32 @@
 		{/if}
 
 	</div>
+</div>
+
+<div class="mt-5">
+	{#if isError != true}
+		<!--[Containder]-->
+		<div class="row">
+			<!--[Tasks-Data]-->
+			<div class="col-sm-12">
+				<!-- content here -->
+				<table class="table table-striped">
+					<!--[Tasks-Data-Headers]-->
+					<thead>
+						<tr>
+							<th class="text-center" scope="col">Total tasks</th>
+							<th class="text-center" scope="col">Success tasks</th>
+							<th class="text-center" scope="col">failure tasks</th>
+						</tr>
+					</thead>
+					<tbody class="text-center">
+						<td>{allTasks.length}</td>
+						<td>{successCount}</td>
+						<td>{failureCount}</td>
+					</tbody>
+				</table>
+			</div>
+		</div>
+	{/if}
+
 </div>
