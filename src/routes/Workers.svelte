@@ -42,7 +42,7 @@
 					<tr>
 						<th scope="row">{i + 1}</th>
 						<td>
-							<a href="/tasks/{worker.id}" use:link>{worker.name}</a>
+							<a href="/single-worker-tasks/{worker.id}" use:link>{worker.name}</a>
 						</td>
 						{#if worker.status == status.ONLINE}
 							<td>
