@@ -9,9 +9,10 @@
 		RECEIVED: 'received',
 		SUCCESS: 'success',
 	};
-	var allTasks;
+	var allTasks = [];
+	console.log(">>>>>>>>>>>>>")
 	//Check if there is taskId in the URL or  not
-	if (params.taskId != null && params.taskId != undefined) {
+	if (params && params.taskId != null && params.taskId != undefined) {
 		allTasks = getSingleWorkerTasks(params.taskId);
 	} else {
 		allTasks = getAllTaks();
