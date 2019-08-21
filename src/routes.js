@@ -5,6 +5,7 @@ let routes
 routes = new Map()
 // routes.set('/', Workers)
 routes.set('/workers', Workers)
+routes.set('/tasks/:taskId', Tasks)
 routes.set('/tasks', Tasks)
 
 export default routes

@@ -3,7 +3,7 @@ export default
 
         "workers": [
             {
-                "id": "32dsf34",
+                "id": 123456,
                 "name": "celery1.pi.local",
                 "status": "online",
                 "concurrency": 4,
@@ -18,7 +18,7 @@ export default
                 ]
 
             }, {
-                "id": "FASDF34",
+                "id": 1234568,
                 "name": "celery2.pi.local",
                 "status": "online",
                 "concurrency": 2,
@@ -30,14 +30,16 @@ export default
                 ]
             },
             {
-                "id": "2342k90dsf",
+                "id": 12345615,
                 "name": "celery3.pi.local",
                 "status": "offline",
                 "concurrency": 3,
                 "completedTasks": 14500,
                 "runningTasks": 0,
                 "queues": ["images", "video"],
-                "tasks": []
+                "tasks": [
+                    { "name": "tasks.sleep", "uuid": "dfsadsf-1234dsf-34dsr-34drfds", "status": "success", "args": "[5]", "kwargs": "{}", "result": "5" }
+                ]
             }
         ],
 
