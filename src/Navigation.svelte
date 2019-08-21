@@ -13,12 +13,9 @@ import {
 	<nav class="navbar navbar-inverse test">
 		<div class="container-fluid">
 			<div class="navbar-header">
-				<a class="navbar-brand" href="#">Jobs visualization</a>
+				<span class="navbar-brand" href="#">Jobs visualization</span>
 			</div>
 			<ul class="nav navbar-nav">
-				<li class="_active">
-					<a href="#">Home</a>
-				</li>
 				<li>
 					<a href="/workers"  use:link >Workers</a>
 				</li>
