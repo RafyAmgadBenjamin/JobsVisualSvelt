@@ -1,5 +1,13 @@
 <script>
 	import workersData from '/home/rafy/svelte/my-svelte-project/src/data.js';
+	import {
+		link,
+		push,
+		pop,
+		replace,
+		location,
+		querystring,
+	} from 'svelte-spa-router';
 
 	let workers = workersData.workers;
 	const status = { ONLINE: 'online', OFFLINE: 'offline' };
@@ -34,7 +42,7 @@
 					<tr>
 						<th scope="row">{i + 1}</th>
 						<td>
-							<a href="/#/tasks/{worker.id}">{worker.name}</a>
+							<a href="/tasks/{worker.id}" use:link>{worker.name}</a>
 						</td>
 						{#if worker.status == status.ONLINE}
 							<td>
