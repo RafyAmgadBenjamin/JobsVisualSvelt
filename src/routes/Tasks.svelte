@@ -4,20 +4,14 @@
 
 	let workers = workersData.workers;
 	var isError = false;
-	// let Tasks = workers.tasks;
 	const status = {
 		STARTED: 'started',
 		RECEIVED: 'received',
 		SUCCESS: 'success',
 	};
-
-	// let tasks = getSingleWorkerTasks(0);
-	// console.log('tasks', tasks);
-
 	var allTasks;
-
+	//Check if there is taskId in the URL or  not
 	if (params.taskId != null && params.taskId != undefined) {
-		console.log('params', params.taskId);
 		allTasks = getSingleWorkerTasks(params.taskId);
 	} else {
 		allTasks = getAllTaks();

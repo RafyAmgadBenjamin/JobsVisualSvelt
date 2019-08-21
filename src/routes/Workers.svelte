@@ -3,7 +3,6 @@
 	
 	let workers = workersData.workers;
 	const status = { ONLINE: 'online', OFFLINE: 'offline' };
-	console.log(workers);
 </script>
 
 <style>
