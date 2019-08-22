@@ -10,13 +10,16 @@
 	if (isError != true) {
 		successCount = 0;
 		failureCount = 0;
-		allTasks.forEach(task => {
-			task.state == 'OK' ? successCount++ : 0;
-		});
-		allTasks.forEach(task => {
-			task.state == 'ERROR' ? failureCount++ : 0;
-		});
+		statsticsCalculation();
 	}
+	function statsticsCalculation() {
+			allTasks.forEach(task => {
+				if (task.state == state.RESULT) successCount++;
+				else if (task.state == state.ERROR) failureCount++;
+				else {
+				}
+			});
+		}
 </script>
 
 <style>
@@ -103,9 +106,9 @@
 					<!--[Tasks-Data-Headers]-->
 					<thead>
 						<tr>
-							<th class="text-center" scope="col">Total tasks</th>
-							<th class="text-center" scope="col">Success tasks</th>
-							<th class="text-center" scope="col">failure tasks</th>
+							<th class="text-center" scope="col">Total Tasks</th>
+							<th class="text-center" scope="col">Success Tasks</th>
+							<th class="text-center" scope="col">Failure Tasks</th>
 						</tr>
 					</thead>
 					<tbody class="text-center">

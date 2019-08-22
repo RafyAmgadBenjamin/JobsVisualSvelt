@@ -14,14 +14,37 @@
 		ERROR: 'ERROR',
 		NEW: 'NEW',
 	};
+
+	var successCount = 0;
+	var failureCount = 0;
+	var newCount = 0;
+
 	let workers = workersData.workers;
 	const status = { ONLINE: 'online', OFFLINE: 'offline' };
-	workers.forEach(worker => {worker.state = worker.state.toUpperCase()})
-	console.log("workers",workers)
+	workers.forEach(worker => {
+		worker.state = worker.state.toUpperCase();
+	});
+
+	
+	statsticsCalculation();
+
+	function statsticsCalculation() {
+		console.log('statstics');
+		workers.forEach(worker => {
+			if (worker.state == state.RESULT) successCount++;
+			else if (worker.state == state.ERROR) failureCount++;
+			else if (worker.state == state.NEW) newCount++;
+			else {
+			}
+		});
+	}
+	console.log(newCount);
 </script>
 
 <style>
-
+	.mt-3 {
+		margin-top: 20px;
+	}
 </style>
 
 <!--[Header]-->
@@ -84,6 +107,30 @@
 						<td>{worker.timeout}</td>
 					</tr>
 				{/each}
+			</tbody>
+		</table>
+	</div>
+</div>
+
+<div class="row mt-3">
+	<!--[Tasks-Data]-->
+	<div class="col-xs-12">
+		<!-- content here -->
+		<table class="table table-striped">
+			<!--[Tasks-Data-Headers]-->
+			<thead>
+				<tr>
+					<th class="text-center" scope="col">Total Workers</th>
+					<th class="text-center" scope="col">New Workers</th>
+					<th class="text-center" scope="col">Success Workers</th>
+					<th class="text-center" scope="col">Failure Workers</th>
+				</tr>
+			</thead>
+			<tbody class="text-center">
+				<td>{workers.length}</td>
+				<td>{newCount}</td>
+				<td>{successCount}</td>
+				<td>{failureCount}</td>
 			</tbody>
 		</table>
 	</div>
