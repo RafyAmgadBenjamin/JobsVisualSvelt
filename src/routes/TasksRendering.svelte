@@ -12,17 +12,23 @@
 
 	let counters = { success: 0, error: 0, new: 0, running: 0, halted: 0 };
 	let currentFilter = state.ALL;
-	$: filteredTasks = () =>  {
+	$: filteredTasks = () => {
 		if (currentFilter == state.ALL) return allTasks;
 		else if (currentFilter == state.RESULT) return tasksFiltering(state.RESULT);
+		else if (currentFilter == state.ERROR) return tasksFiltering(state.ERROR);
+		else if (currentFilter == state.NEW) return tasksFiltering(state.NEW);
+		else if (currentFilter == state.RUNNING) return tasksFiltering(state.RUNNING);
+		else if (currentFilter == state.HALTED) return tasksFiltering(state.HALTED);
 	};
 
 	function tasksFiltering(state) {
+		console.log('state to use in filter', state);
+
 		let filteredTasks = [];
 		allTasks.forEach(task => {
-			task.state == state;
-			filteredTasks.push(task);
+			if (task.state == state) filteredTasks.push(task);
 		});
+		console.log('filtered tasks', filteredTasks);
 		return filteredTasks;
 	}
 
@@ -149,6 +155,26 @@
 			on:click={() => updateFilter(state.RESULT)}
 			class:active={currentFilter === state.RESULT}>
 			Succes
+		</button>
+		<button
+			on:click={() => updateFilter(state.ERROR)}
+			class:active={currentFilter === state.ERROR}>
+			Failure
+		</button>
+		<button
+			on:click={() => updateFilter(state.NEW)}
+			class:active={currentFilter === state.NEW}>
+			New
+		</button>
+		<button
+			on:click={() => updateFilter(state.RUNNING)}
+			class:active={currentFilter === state.RUNNING}>
+			Running
+		</button>
+		<button
+			on:click={() => updateFilter(state.HALTED)}
+			class:active={currentFilter === state.HALTED}>
+			Halted
 		</button>
 
 	</div>
