@@ -33,6 +33,34 @@ npm run dev
 
 Navigate to [localhost:5000](http://localhost:5000). You should see your app running. Edit a component file in `src`, save it, and reload the page to see your changes.
 
+## Project stucture
+.
+└── JobsVisualSvelt
+    ├── active.js
+    ├── npm-debug.log
+    ├── package.json
+    ├── package-lock.json
+    ├── public
+    │   ├── favicon.png
+    │   ├── global.css
+    │   └── index.html
+    ├── README.md
+    ├── rollup.config.js
+    └── src
+        ├── App.svelte
+        ├── data.js
+        ├── main.js
+        ├── Navigation.svelte
+        ├── routes
+        │   ├── NotFound.svelte
+        │   ├── SingleWorkerTasks.svelte
+        │   ├── TasksRendering.svelte
+        │   ├── Tasks.svelte
+        │   └── Workers.svelte
+        └── routes.js
+
+4 directories, 19 files
+
 ## Creating components
 Navigate to `src/routes`
 
