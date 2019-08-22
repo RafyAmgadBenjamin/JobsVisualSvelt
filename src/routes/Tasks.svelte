@@ -1,11 +1,27 @@
 <script>
 	import TasksRendering from './TasksRendering.svelte';
-	import workersData from '/home/rafy/svelte/my-svelte-project/src/data.js';
+	import { getJobs } from '../data';
+	import { onMount } from 'svelte';
 
-	let allTasks = workersData.jobs;
+	let allTasks = [];
 	//Make all the states UpperCase
 	allTasks.forEach(task => {
 		task.state = task.state.toUpperCase();
+	});
+
+	onMount(async () => {
+		getJobs().then(function(data) {
+			if (!data) {
+				return;
+			}
+			console.log("tasks",data);
+			//allTasks = JSON.parse(data).jobs;
+			allTasks = data;
+			//Make all the states UpperCase
+			allTasks.forEach(task => {
+				task.state = task.state.toUpperCase();
+			});
+		});
 	});
 </script>
 

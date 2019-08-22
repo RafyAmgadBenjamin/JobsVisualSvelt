@@ -1,5 +1,6 @@
 <script>
-	import workersData from '/home/rafy/svelte/my-svelte-project/src/data.js';
+	import { getWorkers } from '../data';
+	import { onMount } from 'svelte';
 	import {
 		link,
 		push,
@@ -18,26 +19,35 @@
 	var successCount = 0;
 	var failureCount = 0;
 	var newCount = 0;
-
-	let workers = workersData.workers;
 	const status = { ONLINE: 'online', OFFLINE: 'offline' };
-	workers.forEach(worker => {
-		worker.state = worker.state.toUpperCase();
-	});
+	let workers = [];
 
-	
-	statsticsCalculation();
-
-	function statsticsCalculation() {
-		console.log('statstics');
-		workers.forEach(worker => {
-			if (worker.state == state.RESULT) successCount++;
-			else if (worker.state == state.ERROR) failureCount++;
-			else if (worker.state == state.NEW) newCount++;
-			else {
+	onMount(async () => {
+		console.log(getWorkers);
+		
+		getWorkers().then(function(data) {
+			if (!data) {
+				return;
+			}
+			console.log(data, typeof data);
+			// workers = JSON.parse(data).workers;
+			workers = data;
+			workers.forEach(worker => {
+				worker.state = worker.state.toUpperCase();
+			});
+			statsticsCalculation();
+			function statsticsCalculation() {
+				console.log('statstics');
+				workers.forEach(worker => {
+					if (worker.state == state.RESULT) successCount++;
+					else if (worker.state == state.ERROR) failureCount++;
+					else if (worker.state == state.NEW) newCount++;
+					else {
+					}
+				});
 			}
 		});
-	}
+	});
 	console.log(newCount);
 </script>
 
