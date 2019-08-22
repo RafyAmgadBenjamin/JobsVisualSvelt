@@ -4,22 +4,27 @@
 	const state = {
 		RESULT: 'OK',
 		ERROR: 'ERROR',
+		NEW: 'NEW',
+		RUNNING: 'RUNNING',
+		HALTED: 'HALTED',
 	};
-	var successCount;
-	var failureCount;
+
+	let counters = { success: 0, error: 0, new: 0, running: 0, halted: 0 };
+
 	if (isError != true) {
-		successCount = 0;
-		failureCount = 0;
 		statsticsCalculation();
 	}
 	function statsticsCalculation() {
-			allTasks.forEach(task => {
-				if (task.state == state.RESULT) successCount++;
-				else if (task.state == state.ERROR) failureCount++;
-				else {
-				}
-			});
-		}
+		allTasks.forEach(task => {
+			if (task.state == state.RESULT) counters['success']++;
+			else if (task.state == state.ERROR) counters['error']++;
+			else if (task.state == state.NEW) counters['new']++;
+			else if (task.state == state.RUNNING) counters['running']++;
+			else if (task.state == state.HALTED) counters['halted']++;
+			else {
+			}
+		});
+	}
 </script>
 
 <style>
@@ -75,6 +80,24 @@
 											{task.state}
 										</span>
 									</td>
+								{:else if task.state == state.NEW}
+									<td>
+										<span class="label label-pill label-primary">
+											{task.state}
+										</span>
+									</td>
+								{:else if task.state == state.RUNNING}
+									<td>
+										<span class="label label-pill label-warning">
+											{task.state}
+										</span>
+									</td>
+								{:else if task.state == state.HALTED}
+									<td>
+										<span class="label label-pill label-info">
+											{task.state}
+										</span>
+									</td>
 								{/if}
 
 								<td>{task.timeout}</td>
@@ -109,12 +132,18 @@
 							<th class="text-center" scope="col">Total Tasks</th>
 							<th class="text-center" scope="col">Success Tasks</th>
 							<th class="text-center" scope="col">Failure Tasks</th>
+							<th class="text-center" scope="col">New Tasks</th>
+							<th class="text-center" scope="col">Running Tasks</th>
+							<th class="text-center" scope="col">Halted Tasks</th>
 						</tr>
 					</thead>
 					<tbody class="text-center">
 						<td>{allTasks.length}</td>
-						<td>{successCount}</td>
-						<td>{failureCount}</td>
+						<td>{counters['success']}</td>
+						<td>{counters['error']}</td>
+						<td>{counters['new']}</td>
+						<td>{counters['running']}</td>
+						<td>{counters['halted']}</td>
 					</tbody>
 				</table>
 			</div>
