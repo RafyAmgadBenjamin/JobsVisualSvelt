@@ -17,7 +17,8 @@
 		else if (currentFilter == state.RESULT) return tasksFiltering(state.RESULT);
 		else if (currentFilter == state.ERROR) return tasksFiltering(state.ERROR);
 		else if (currentFilter == state.NEW) return tasksFiltering(state.NEW);
-		else if (currentFilter == state.RUNNING) return tasksFiltering(state.RUNNING);
+		else if (currentFilter == state.RUNNING)
+			return tasksFiltering(state.RUNNING);
 		else if (currentFilter == state.HALTED) return tasksFiltering(state.HALTED);
 	};
 
@@ -29,13 +30,16 @@
 			if (task.state == state) filteredTasks.push(task);
 		});
 		console.log('filtered tasks', filteredTasks);
+		console.log('tasks in filtered tasks', allTasks);
 		return filteredTasks;
 	}
 
 	if (isError != true) {
 		statsticsCalculation();
 	}
+
 	function statsticsCalculation() {
+		console.log('all tasks', allTasks);
 		allTasks.forEach(task => {
 			if (task.state == state.RESULT) counters['success']++;
 			else if (task.state == state.ERROR) counters['error']++;
@@ -45,7 +49,9 @@
 			else {
 			}
 		});
+		console.log('all counters', counters);
 	}
+	
 	function updateFilter(filter) {
 		console.log(`updating currentFilter to : ${filter}`);
 		currentFilter = filter;

@@ -1,6 +1,7 @@
-*Psst — looking for a shareable component template? Go here --> [sveltejs/component-template](https://github.com/sveltejs/component-template)*
 
----
+
+[this subtext](README.md/Creating components)
+
 
 # svelte app
 
@@ -33,6 +34,29 @@ npm run dev
 
 Navigate to [localhost:5000](http://localhost:5000). You should see your app running. Edit a component file in `src`, save it, and reload the page to see your changes.
 
+## Creating components
+Create a file with extenion .svelte **example**: `MyComponent.svelte`
+
+Import the component into the other component **example** 	`import MyComponent from './MyComponent.svelte';`
+
+Nest this component in any other component **example**: `<MyComponent/>`
+
+##Routing between components
+Install the dependencies for external router **svelte-spa-router**...
+
+```bash
+npm install svelte-spa-router
+```
+
+Register your routes to the component
+```
+let routes
+routes = new Map()
+routes.set('/', MyComponent)
+routes.set('/MyComponent', MyComponent)
+```
+
+For more information about the router check <https://www.npmjs.com/package/svelte-spa-router>
 
 ## Deploying to the web
 
@@ -53,17 +77,3 @@ now
 
 As an alternative, use the [Now desktop client](https://zeit.co/download) and simply drag the unzipped project folder to the taskbar icon.
 
-### With [surge](https://surge.sh/)
-
-Install `surge` if you haven't already:
-
-```bash
-npm install -g surge
-```
-
-Then, from within your project folder:
-
-```bash
-npm run build
-surge public
-```

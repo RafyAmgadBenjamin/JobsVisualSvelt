@@ -21,6 +21,7 @@
 			allTasks.forEach(task => {
 				task.state = task.state.toUpperCase();
 			});
+			console.log("all tasks from parent",allTasks);
 		});
 	});
 </script>
