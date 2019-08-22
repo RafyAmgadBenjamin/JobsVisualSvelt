@@ -3,38 +3,81 @@ export default
 
         "workers": [
             {
-                "pid": 156652,
-                "time_start": "8-8-2019",
-                "last_update": "5 m",
-                "current_job": 13902,
-                "running": true,
-                "tasks": [
-                    { "category": "tasks.sleep", "time_start": "5-9-2019", "time_end": "10-9-2019", "state": "error", "action_name": "testing_actions", "args": "[5]", "kwargs": "{}", "result": "5", "error": "message" },
-                    { "category": "tasks.sleep", "time_start": "5-9-2019", "time_end": "10-9-2019", "state": "error", "action_name": "testing_actions", "args": "[5]", "kwargs": "{}", "result": "5", "error": "message" },
-                    { "category": "tasks.sleep", "time_start": "5-9-2019", "time_end": "10-9-2019", "state": "ok", "action_name": "testing_actions", "args": "[5]", "kwargs": "{}", "result": "5", "error": "message" },
-                    { "category": "tasks.sleep", "time_start": "5-9-2019", "time_end": "10-9-2019", "state": "ok", "action_name": "testing_actions", "args": "[5]", "kwargs": "{}", "result": "5", "error": "message" },
-                ]
-
-            }, {
-                "pid": 123456,
-                "time_start": "8-8-2019",
-                "last_update": "5 m",
-                "current_job": 13902,
-                "running": true,
-                "tasks": [
-                    { "category": "tasks.sleep", "time_start": "5-9-2019", "time_end": "10-9-2019", "state":  "ok","action_name":  "testing_actions", "args": "[5]", "kwargs": "{}", "result": "5", "error": "message" },
-                ]
+                "timeout": "3,600",
+                "time_start": "2019/08/21 15:57:51",
+                "last_update": "2019/08/21 16:10:03",
+                "current_job": "-",
+                "error": "",
+                "state": "NEW",
+                "pid": "0",
+                "halt": false,
+                "id": 1
             },
             {
-                "pid": 26545,
-                "time_start": "8-8-2019",
-                "last_update": "5 m",
-                "current_job": 13902,
-                "running": true,
-                "tasks": [
-                    { "category": "tasks.sleep", "time_start": "5-9-2019", "time_end": "10-9-2019", "state": "error", "action_name": "testing_actions", "args": "[5]", "kwargs": "{}", "result": "5", "error": "message" },
-                ]
+                "timeout": "3,600",
+                "time_start": "2019/08/21 15:57:54",
+                "last_update": "2019/08/21 15:57:54",
+                "current_job": "-",
+                "error": "something wrong",
+                "state": "error",
+                "pid": "0",
+                "halt": false,
+                "id": 2
+            },
+            {
+                "timeout": "3,600",
+                "time_start": "2019/08/21 15:57:56",
+                "last_update": "2019/08/21 16:03:42",
+                "current_job": "-",
+                "error": "",
+                "state": "NEW",
+                "pid": "0",
+                "halt": false,
+                "id": 3
+            }],
+        "jobs": [
+            {
+                "category": "",
+                "time_start": "2019/08/21 16:01:41",
+                "time_stop": "2019/08/21 16:01:41",
+                "state": "ok",
+                "timeout": "0",
+                "action_id": "4",
+                "args": "[\n1,\n2\n]",
+                "kwargs": "{}",
+                "result": "3",
+                "error": "{}",
+                "return_queues": [],
+                "id": 5
+            },
+            {
+                "category": "test category",
+                "time_start": "2019/08/21 16:03:42",
+                "time_stop": "2019/08/21 16:05:22",
+                "state": "error",
+                "timeout": "0",
+                "action_id": "6",
+                "args": "[\n1,\n2\n]",
+                "kwargs": "{}",
+                "result": "3",
+                "error": "{error test}",
+                "return_queues": ["test1","test2"],
+                "id": 7
+            },
+            {
+                "category": "",
+                "time_start": "2019/08/21 16:10:03",
+                "time_stop": "2019/08/21 16:11:43",
+                "state": "ok",
+                "timeout": "0",
+                "action_id": "6",
+                "args": "[\n1,\n2\n]",
+                "kwargs": "{}",
+                "result": "3",
+                "error": "{}",
+                "return_queues": [],
+                "id": 8
             }
-        ],
+        ]
 
     }

@@ -2,22 +2,9 @@
 	import TasksRendering from './TasksRendering.svelte';
 	import workersData from '/home/rafy/svelte/my-svelte-project/src/data.js';
 
-	let workers = workersData.workers;
+	let allTasks = workersData.jobs;
 
-	var allTasks = [];
-
-	allTasks = getAllTaks();
-
-	function getAllTaks() {
-		var allTasks = [];
-		workers.forEach(worker => {
-			let workerTasks = worker.tasks;
-			workerTasks.forEach(task => {
-				allTasks.push(task);
-			});
-		});
-		return allTasks;
-	}
+	allTasks.forEach(task => {task.state = task.state.toUpperCase()})
 	console.log("working")
 </script>
 

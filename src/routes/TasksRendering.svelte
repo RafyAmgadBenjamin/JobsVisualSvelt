@@ -2,24 +2,28 @@
 	export let allTasks = [];
 	export let isError = false;
 	const state = {
-		RESULT: 'ok',
-		ERROR: 'error',
+		RESULT: 'OK',
+		ERROR: 'ERROR',
 	};
-	console.log('tasks rendering module');
-
 	var successCount;
 	var failureCount;
 	if (isError != true) {
 		successCount = 0;
 		failureCount = 0;
 		allTasks.forEach(task => {
-			task.state == 'ok' ? successCount++ : 0;
+			task.state == 'OK' ? successCount++ : 0;
 		});
 		allTasks.forEach(task => {
-			task.state == 'error' ? failureCount++ : 0;
+			task.state == 'ERROR' ? failureCount++ : 0;
 		});
 	}
 </script>
+
+<style>
+	.mt-3 {
+		margin-top: 20px;
+	}
+</style>
 
 <!--[Containder]-->
 <div>
@@ -33,15 +37,18 @@
 					<thead>
 						<tr>
 							<th scope="col">#</th>
+							<th scope="col">Id</th>
 							<th scope="col">Category</th>
-							<th scope="col">Time start</th>
-							<th scope="col">Time end</th>
+							<th scope="col">Time Start</th>
+							<th scope="col">Time Stop</th>
 							<th scope="col">State</th>
-							<th scope="col">Action name</th>
+							<th scope="col">Timeout</th>
+							<th scope="col">Action Id</th>
 							<th scope="col">args</th>
 							<th scope="col">kwargs</th>
 							<th scope="col">Result</th>
 							<th scope="col">Error</th>
+							<th scope="col">Return Queues</th>
 						</tr>
 					</thead>
 					<!--[Tasks-Data-Body]-->
@@ -49,9 +56,10 @@
 						{#each allTasks as task, i}
 							<tr>
 								<th scope="row">{i + 1}</th>
+								<td>{task.id}</td>
 								<td>{task.category}</td>
 								<td>{task.time_start}</td>
-								<td>{task.time_end}</td>
+								<td>{task.time_stop}</td>
 								{#if task.state == state.RESULT}
 									<td>
 										<span class="label label-pill label-success">
@@ -66,11 +74,13 @@
 									</td>
 								{/if}
 
-								<td>{task.action_name}</td>
+								<td>{task.timeout}</td>
+								<td>{task.action_id}</td>
 								<td>{task.args}</td>
 								<td>{task.kwargs}</td>
 								<td>{task.result}</td>
 								<td>{task.error}</td>
+								<td>{task.return_queues}</td>
 							</tr>
 						{/each}
 					</tbody>
@@ -85,7 +95,7 @@
 
 	{#if isError != true}
 		<!--[Containder]-->
-		<div class="row">
+		<div class="row mt-3">
 			<!--[Tasks-Data]-->
 			<div class="col-xs-12">
 				<!-- content here -->
