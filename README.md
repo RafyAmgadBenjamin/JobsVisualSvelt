@@ -18,20 +18,20 @@ cd svelte-app
 
 ## Get started
 
-Install the dependencies...
+- Install the dependencies...
 
 ```bash
 cd svelte-app
 npm install
 ```
 
-...then start [Rollup](https://rollupjs.org):
+- start [Rollup](https://rollupjs.org):
 
 ```bash
 npm run dev
 ```
 
-Navigate to [localhost:5000](http://localhost:5000). You should see your app running. Edit a component file in `src`, save it, and reload the page to see your changes.
+- Navigate to [localhost:5000](http://localhost:5000). You should see your app running. Edit a component file in `src`, save it, and reload the page to see your changes.
 
 ## Project stucture
 ```
@@ -63,22 +63,22 @@ Navigate to [localhost:5000](http://localhost:5000). You should see your app run
 4 directories, 19 files
 ```
 ## Creating components
-Navigate to `src/routes`
+- Navigate to `src/routes`
 
-Create a file with extenion .svelte **example**: `MyComponent.svelte`
+- Create a file with extenion .svelte **example**: `MyComponent.svelte`
 
-Import the component into the other component **example** 	`import MyComponent from './MyComponent.svelte';`
+- Import the component into the other component **example** 	`import MyComponent from './MyComponent.svelte';`
 
-Nest this component in any other component **example**: `<MyComponent/>`
+- Nest this component in any other component **example**: `<MyComponent/>`
 
 ## Routing between components
-Install the dependencies for external router **svelte-spa-router**...
+- Install the dependencies for external router **svelte-spa-router**...
 
 ```bash
 npm install svelte-spa-router
 ```
 
-Register your routes to the component
+- Register your routes to the component
 ```
 let routes
 routes = new Map()
@@ -92,13 +92,13 @@ For more information about the router check <https://www.npmjs.com/package/svelt
 
 ### With [now](https://zeit.co/now)
 
-Install `now` if you haven't already:
+- Install `now` if you haven't already:
 
 ```bash
 npm install -g now
 ```
 
-Then, from within your project folder:
+- From within your project folder:
 
 ```bash
 cd public
