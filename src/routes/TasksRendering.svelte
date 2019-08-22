@@ -7,9 +7,24 @@
 		NEW: 'NEW',
 		RUNNING: 'RUNNING',
 		HALTED: 'HALTED',
+		ALL: 'all',
 	};
 
 	let counters = { success: 0, error: 0, new: 0, running: 0, halted: 0 };
+	let currentFilter = state.ALL;
+	$: filteredTasks = () =>  {
+		if (currentFilter == state.ALL) return allTasks;
+		else if (currentFilter == state.RESULT) return tasksFiltering(state.RESULT);
+	};
+
+	function tasksFiltering(state) {
+		let filteredTasks = [];
+		allTasks.forEach(task => {
+			task.state == state;
+			filteredTasks.push(task);
+		});
+		return filteredTasks;
+	}
 
 	if (isError != true) {
 		statsticsCalculation();
@@ -24,6 +39,10 @@
 			else {
 			}
 		});
+	}
+	function updateFilter(filter) {
+		console.log(`updating currentFilter to : ${filter}`);
+		currentFilter = filter;
 	}
 </script>
 
@@ -61,7 +80,7 @@
 					</thead>
 					<!--[Tasks-Data-Body]-->
 					<tbody>
-						{#each allTasks as task, i}
+						{#each filteredTasks() as task, i}
 							<tr>
 								<th scope="row">{i + 1}</th>
 								<td>{task.id}</td>
@@ -119,6 +138,21 @@
 		</div>
 	</div>
 
+	<!--[Filter]-->
+	<div>
+		<button
+			on:click={() => updateFilter(state.ALL)}
+			class:active={currentFilter === state.ALL}>
+			All
+		</button>
+		<button
+			on:click={() => updateFilter(state.RESULT)}
+			class:active={currentFilter === state.RESULT}>
+			Succes
+		</button>
+
+	</div>
+	<!--[Statstics]-->
 	{#if isError != true}
 		<!--[Containder]-->
 		<div class="row mt-3">
