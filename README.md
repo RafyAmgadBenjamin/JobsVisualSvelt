@@ -1,6 +1,5 @@
 
 
-[this subtext](README.md/Creating components)
 
 
 # svelte app
@@ -35,13 +34,15 @@ npm run dev
 Navigate to [localhost:5000](http://localhost:5000). You should see your app running. Edit a component file in `src`, save it, and reload the page to see your changes.
 
 ## Creating components
+Navigate to `src/routes`
+
 Create a file with extenion .svelte **example**: `MyComponent.svelte`
 
 Import the component into the other component **example** 	`import MyComponent from './MyComponent.svelte';`
 
 Nest this component in any other component **example**: `<MyComponent/>`
 
-##Routing between components
+## Routing between components
 Install the dependencies for external router **svelte-spa-router**...
 
 ```bash
