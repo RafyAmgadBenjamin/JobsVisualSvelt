@@ -34,6 +34,7 @@ npm run dev
 Navigate to [localhost:5000](http://localhost:5000). You should see your app running. Edit a component file in `src`, save it, and reload the page to see your changes.
 
 ## Project stucture
+```
 .
 └── JobsVisualSvelt
     ├── active.js
@@ -60,7 +61,7 @@ Navigate to [localhost:5000](http://localhost:5000). You should see your app run
         └── routes.js
 
 4 directories, 19 files
-
+```
 ## Creating components
 Navigate to `src/routes`
 
