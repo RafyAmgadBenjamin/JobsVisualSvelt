@@ -44,6 +44,8 @@ npm run dev
     ├── public
     │   ├── favicon.png
     │   ├── global.css
+    │   ├── img
+    │   │   └── loader.gif
     │   └── index.html
     ├── README.md
     ├── rollup.config.js
@@ -60,7 +62,7 @@ npm run dev
         │   └── Workers.svelte
         └── routes.js
 
-4 directories, 19 files
+5 directories, 20 files
 ```
 ## Creating components
 - Navigate to `src/routes`
