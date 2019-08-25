@@ -176,7 +176,9 @@ function getWorkers() {
                 "id": 3
             }]
 
-        resolve(workers);
+        setTimeout(function () {
+            resolve(workers); // Yay! Everything went well!
+        }, 5000);
     })
 
 }

@@ -15,7 +15,6 @@
 		ERROR: 'ERROR',
 		NEW: 'NEW',
 	};
-
 	var successCount = 0;
 	var failureCount = 0;
 	var newCount = 0;
@@ -24,7 +23,7 @@
 
 	onMount(async () => {
 		console.log(getWorkers);
-		
+
 		getWorkers().then(function(data) {
 			if (!data) {
 				return;
@@ -116,12 +115,21 @@
 						<td>{worker.time_start}</td>
 						<td>{worker.timeout}</td>
 					</tr>
+				{:else}
+					<!-- this block renders when photos.length === 0 -->
+					<!-- <p>loading...</p> -->
+					<div class="text-center">
+						<img
+							src={'/img/loader.gif'}
+							class="img-fluid"
+							alt="Responsive image" />
+					</div>
 				{/each}
 			</tbody>
 		</table>
 	</div>
 </div>
-
+<!--[Statstics-Data]-->
 <div class="row mt-3">
 	<!--[Tasks-Data]-->
 	<div class="col-xs-12">
