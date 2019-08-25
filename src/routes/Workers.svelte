@@ -58,98 +58,99 @@
 
 <!--[Header]-->
 <h1>Workers</h1>
-<!--[Containder]-->
-<div class="row">
-	<!--[Workers-Data]-->
-	<div class="col-xs-12">
-		<table class="table table-striped">
-			<!--[Workers-Data-Headers]-->
-			<thead>
-				<tr>
-					<th scope="col">#</th>
-					<th scope="col">Id</th>
-					<th scope="col">Halt</th>
-					<th scope="col">Pid</th>
-					<th scope="col">State</th>
-					<th scope="col">Error</th>
-					<th scope="col">Current Job</th>
-					<th scope="col">Last Update</th>
-					<th scope="col">Time Start</th>
-					<th scope="col">Timeout</th>
-				</tr>
-			</thead>
-			<!--[Workers-Data-Body]-->
-			<tbody>
-				{#each workers as worker, i}
-					<tr>
-						<th scope="row">{i + 1}</th>
-						<td>
-							<a href="/single-worker-tasks/{worker.id}" use:link>
-								{worker.id}
-							</a>
-						</td>
-						<td>{worker.halt}</td>
-						<td>{worker.pid}</td>
-						{#if worker.state == state.RESULT}
-							<td>
-								<span class="label label-pill label-success">
-									{worker.state}
-								</span>
-							</td>
-						{:else if worker.state == state.ERROR}
-							<td>
-								<span class="label label-pill label-danger">
-									{worker.state}
-								</span>
-							</td>
-						{:else if worker.state == state.NEW}
-							<td>
-								<span class="label label-pill label-primary">
-									{worker.state}
-								</span>
-							</td>
-						{/if}
-						<td>{worker.error}</td>
-						<td>{worker.current_job}</td>
-						<td>{worker.last_update}</td>
-						<td>{worker.time_start}</td>
-						<td>{worker.timeout}</td>
-					</tr>
-				{:else}
-					<!-- this block renders when photos.length === 0 -->
-					<!-- <p>loading...</p> -->
-					<div class="text-center">
-						<img
-							src={'/img/loader.gif'}
-							class="img-fluid"
-							alt="Responsive image" />
-					</div>
-				{/each}
-			</tbody>
-		</table>
+{#if workers && workers.length > 0}
+	<!--[Containder]-->
+	<div>
+		<div class="row">
+			<!--[Workers-Data]-->
+			<div class="col-xs-12">
+				<table class="table table-striped">
+					<!--[Workers-Data-Headers]-->
+					<thead>
+						<tr>
+							<th scope="col">#</th>
+							<th scope="col">Id</th>
+							<th scope="col">Halt</th>
+							<th scope="col">Pid</th>
+							<th scope="col">State</th>
+							<th scope="col">Error</th>
+							<th scope="col">Current Job</th>
+							<th scope="col">Last Update</th>
+							<th scope="col">Time Start</th>
+							<th scope="col">Timeout</th>
+						</tr>
+					</thead>
+					<!--[Workers-Data-Body]-->
+					<tbody>
+						{#each workers as worker, i}
+							<tr>
+								<th scope="row">{i + 1}</th>
+								<td>
+									<a href="/single-worker-tasks/{worker.id}" use:link>
+										{worker.id}
+									</a>
+								</td>
+								<td>{worker.halt}</td>
+								<td>{worker.pid}</td>
+								{#if worker.state == state.RESULT}
+									<td>
+										<span class="label label-pill label-success">
+											{worker.state}
+										</span>
+									</td>
+								{:else if worker.state == state.ERROR}
+									<td>
+										<span class="label label-pill label-danger">
+											{worker.state}
+										</span>
+									</td>
+								{:else if worker.state == state.NEW}
+									<td>
+										<span class="label label-pill label-primary">
+											{worker.state}
+										</span>
+									</td>
+								{/if}
+								<td>{worker.error}</td>
+								<td>{worker.current_job}</td>
+								<td>{worker.last_update}</td>
+								<td>{worker.time_start}</td>
+								<td>{worker.timeout}</td>
+							</tr>
+						{/each}
+					</tbody>
+				</table>
+			</div>
+		</div>
+		<!--[Statstics-Data]-->
+		<div class="row mt-3">
+			<!--[Tasks-Data]-->
+			<div class="col-xs-12">
+				<!-- content here -->
+				<table class="table table-striped">
+					<!--[Tasks-Data-Headers]-->
+					<thead>
+						<tr>
+							<th class="text-center" scope="col">Total Workers</th>
+							<th class="text-center" scope="col">New Workers</th>
+							<th class="text-center" scope="col">Success Workers</th>
+							<th class="text-center" scope="col">Failure Workers</th>
+						</tr>
+					</thead>
+					<tbody class="text-center">
+						<td>{workers.length}</td>
+						<td>{newCount}</td>
+						<td>{successCount}</td>
+						<td>{failureCount}</td>
+					</tbody>
+				</table>
+			</div>
+		</div>
 	</div>
-</div>
-<!--[Statstics-Data]-->
-<div class="row mt-3">
-	<!--[Tasks-Data]-->
-	<div class="col-xs-12">
-		<!-- content here -->
-		<table class="table table-striped">
-			<!--[Tasks-Data-Headers]-->
-			<thead>
-				<tr>
-					<th class="text-center" scope="col">Total Workers</th>
-					<th class="text-center" scope="col">New Workers</th>
-					<th class="text-center" scope="col">Success Workers</th>
-					<th class="text-center" scope="col">Failure Workers</th>
-				</tr>
-			</thead>
-			<tbody class="text-center">
-				<td>{workers.length}</td>
-				<td>{newCount}</td>
-				<td>{successCount}</td>
-				<td>{failureCount}</td>
-			</tbody>
-		</table>
+{:else}
+	<!-- this block renders when photos.length === 0 -->
+	<!-- <p>loading...</p> -->
+	<div class="text-center">
+		<img src={'/img/loader.gif'} class="img-fluid" alt="Responsive image" />
 	</div>
-</div>
+{/if}

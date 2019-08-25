@@ -194,7 +194,7 @@ function getJobs() {
                 "category": "",
                 "time_start": "2019/08/21 16:01:41",
                 "time_stop": "2019/08/21 16:01:41",
-                "state": "ok",
+                "state": "error",
                 "timeout": "0",
                 "action_id": "4",
                 "args": "[\n1,\n2\n]",
@@ -289,7 +289,10 @@ function getJobs() {
                 "id": 8
             }
         ]
-        resolve(jobs)
+        
+        setTimeout(function () {
+            resolve(jobs); // Yay! Everything went well!
+        }, 5000);
     }
     )
 }

@@ -13,6 +13,8 @@
 	let counters = { success: 0, error: 0, new: 0, running: 0, halted: 0 };
 	let currentFilter = state.ALL;
 	$: filteredTasks = () => {
+		counters = { success: 0, error: 0, new: 0, running: 0, halted: 0 };
+		statsticsCalculation();
 		if (currentFilter == state.ALL) return allTasks;
 		else if (currentFilter == state.RESULT) return tasksFiltering(state.RESULT);
 		else if (currentFilter == state.ERROR) return tasksFiltering(state.ERROR);
@@ -34,9 +36,9 @@
 		return filteredTasks;
 	}
 
-	if (isError != true) {
-		statsticsCalculation();
-	}
+	// if (isError != true) {
+	// 	statsticsCalculation();
+	// }
 
 	function statsticsCalculation() {
 		console.log('all tasks', allTasks);
@@ -65,6 +67,7 @@
 </style>
 
 <!--[Containder]-->
+{#if filteredTasks() && filteredTasks().length > 0}
 <div>
 	<div class="row">
 		<!--[Tasks-Data]-->
@@ -216,3 +219,10 @@
 		</div>
 	{/if}
 </div>
+{:else}
+	<!-- this block renders when photos.length === 0 -->
+	<!-- <p>loading...</p> -->
+	<div class="text-center">
+		<img src={'/img/loader.gif'} class="img-fluid" alt="Responsive image" />
+	</div>
+{/if}
