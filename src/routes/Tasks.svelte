@@ -14,14 +14,12 @@
 			if (!data) {
 				return;
 			}
-			console.log("tasks",data);
 			//allTasks = JSON.parse(data).jobs;
 			allTasks = data;
 			//Make all the states UpperCase
 			allTasks.forEach(task => {
 				task.state = task.state.toUpperCase();
 			});
-			console.log("all tasks from parent",allTasks);
 		});
 	});
 </script>

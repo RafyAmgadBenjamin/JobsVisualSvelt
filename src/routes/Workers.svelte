@@ -22,21 +22,18 @@
 	let workers = [];
 
 	onMount(async () => {
-		console.log(getWorkers);
-
 		getWorkers().then(function(data) {
 			if (!data) {
 				return;
 			}
-			console.log(data, typeof data);
-			// workers = JSON.parse(data).workers;
+			//Todo:The data will need to be parsed to json
 			workers = data;
 			workers.forEach(worker => {
 				worker.state = worker.state.toUpperCase();
 			});
+			//Calculating the statstics relatedt to the workers
 			statsticsCalculation();
 			function statsticsCalculation() {
-				console.log('statstics');
 				workers.forEach(worker => {
 					if (worker.state == state.RESULT) successCount++;
 					else if (worker.state == state.ERROR) failureCount++;
@@ -47,7 +44,6 @@
 			}
 		});
 	});
-	console.log(newCount);
 </script>
 
 <style>
